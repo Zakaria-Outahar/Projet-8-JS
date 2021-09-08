@@ -38,9 +38,9 @@ function rajouteEnleve(e){
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
     if(randomColor.length < 6 || randomColor.length >= 7){
         if(randomColor.length === 5){
-            randomColor = `${randomColor}${Math.floor(Math.random()*17).toString(16)}`;
+            randomColor = `${randomColor}${Math.floor(Math.random()*16).toString(16)}`;
         } else if(randomColor.length === 4){
-            randomColor = `${randomColor}${Math.floor(Math.random()*17).toString(16)}${Math.floor(Math.random()*17).toString(16)}`;
+            randomColor = `${randomColor}${Math.floor(Math.random()*16).toString(16)}${Math.floor(Math.random()*16).toString(16)}`;
         } else if(randomColor.length === 7){
             randomColor = randomColor.slice(0,6);
         }
@@ -57,7 +57,6 @@ function rajouteEnleve(e){
         nvCouleur.style.background = `#${randomColor}`;
         containerCouleurs.appendChild(nvCouleur);
         allInputs.push(nvCouleur);
-
 
         valCouleurs.push(nvCouleur.value);
         
@@ -101,9 +100,9 @@ btnRandom.addEventListener('click', () => {
         let randomColor = Math.floor(Math.random()*16777215).toString(16);
         if(randomColor.length < 6){
             if(randomColor.length === 5){
-                randomColor = `${randomColor}${Math.floor(Math.random()*17).toString(16)}`;
+                randomColor = `${randomColor}${Math.floor(Math.random()*16).toString(16)}`;
             } else if(randomColor.length === 4){
-                randomColor = `${randomColor}${Math.floor(Math.random()*17).toString(16)}${Math.floor(Math.random()*17).toString(16)}`;
+                randomColor = `${randomColor}${Math.floor(Math.random()*16).toString(16)}${Math.floor(Math.random()*16).toString(16)}`;
             } else if(randomColor.length === 7){
                 randomColor = randomColor.slice(0,6);
             }
