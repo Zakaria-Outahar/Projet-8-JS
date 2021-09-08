@@ -34,7 +34,7 @@ btns.forEach(btn => {
 
 function rajouteEnleve(e){
     span.innerText = "";
-    const allInputs = document.querySelectorAll('.inp-couleur');
+    const allInputs = Array.from(document.querySelectorAll('.inp-couleur'));
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
     if(randomColor.length < 6 || randomColor.length >= 7){
         if(randomColor.length === 5){
@@ -56,6 +56,8 @@ function rajouteEnleve(e){
         nvCouleur.value = `#${randomColor.toUpperCase()}`;
         nvCouleur.style.background = `#${randomColor}`;
         containerCouleurs.appendChild(nvCouleur);
+        allInputs.push(nvCouleur);
+
 
         valCouleurs.push(nvCouleur.value);
         
@@ -69,10 +71,27 @@ function rajouteEnleve(e){
             valCouleurs.pop();
             allInputs[allInputs.length - 1].remove();
             fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
+            index--;
         }
     }
+
+    allInputs.forEach(inp => {
+        inp.addEventListener('input', MAJColors);
+    });
+
 }
 
+inputsCouleur.forEach(inp => {
+    inp.addEventListener('input', MAJColors);
+});
+
+function MAJColors(e){
+    let indexEnCours = e.target.getAttribute('data-index');
+    e.target.value = e.target.value.toUpperCase();
+    valCouleurs[indexEnCours - 1] = e.target.value.toUpperCase();
+    e.target.style.background = valCouleurs[indexEnCours - 1];
+    fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
+}
 // Couleur aléatoire
 
 btnRandom.addEventListener('click', () => {
