@@ -14,7 +14,7 @@ body{
     background: #333;
 }
 
-.container-couleur, .container-btn, .container-range{
+.container-couleurs, .container-btn, .container-range{
     height: auto;
     width: 30%;
     max-width: 400px;
@@ -24,7 +24,7 @@ body{
     align-items: center;
 }
 
-.container-couleur{
+.container-couleurs{
     flex-direction: column;
 }
 
